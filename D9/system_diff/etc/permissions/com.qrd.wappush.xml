@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+        Copyright (c) 2011, QUALCOMM Incorporated.
+        All Rights Reserved.
+        QUALCOMM Proprietary and Confidential.
+        Developed by QRD Engineering team.
+    -->
+
+<permissions>
+    <library name="com.qrd.wappush"
+            file="/system/framework/com.qrd.wappush.jar" />
+</permissions>

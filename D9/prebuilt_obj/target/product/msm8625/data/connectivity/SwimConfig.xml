@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SwimConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="SwimConfig.xsd">
+ <!--The version of SwimConfig file format-->
+ <Version>1.0</Version>
+  <ModulesConfiguration>
+    <WiFiManager>
+      <DefaultState>ON</DefaultState>
+    </WiFiManager>
+    <LinkPathManager>
+      <!-- The number of past days to retain path history-->
+      <PathHistory units="days">365</PathHistory>
+    </LinkPathManager>
+    <IFSelection>
+      <HysteresisTimer units="s">10</HysteresisTimer>
+    </IFSelection>
+    <InterfaceManager>
+      <T_BLACKLIST_BQE units="secs">60</T_BLACKLIST_BQE>
+      <T_BLACKLIST_ICD units="secs">60</T_BLACKLIST_ICD>
+      <BQE>
+        <T_passiveBQE units="s">5</T_passiveBQE>
+      </BQE>
+    </InterfaceManager>
+    <BitrateEstimationManager>
+      <RAT Type="WLAN">
+        <PollInterval units="ms">60</PollInterval>
+        <BurstDuration units="">2</BurstDuration>
+        <TopN units="">4</TopN>
+      </RAT>
+      <RAT Type="WWAN">
+        <PollInterval units="ms">70</PollInterval>
+        <BurstDuration units="">2</BurstDuration>
+        <TopN units="">4</TopN>
+      </RAT>
+      <ActiveBQE>
+        <URI>http://cne-test.qualcomm.com/cne/v1/bqe/traffic</URI>
+        <PostURI>https://cne-post-test.qualcomm.com/cne/v1/bqe/findings</PostURI>
+        <!-- Specifies delaying the active
+        probe relative to the start of BPS sampling If the delay value is
+        positive the active probe will be delayed and vice versa -->
+        <Delay units="ms">0</Delay>
+        <Default_mbw units="bps">4000000</Default_mbw>
+        <Default_mss units="bytes">1360</Default_mss>
+        <default_rtt units="ms">250</default_rtt>
+        <cong2slow>1</cong2slow>
+        <BQE_Past_Size>7</BQE_Past_Size>
+        <BQE_validity_short_timer units="s">10800</BQE_validity_short_timer>
+        <BQE_good_validity units="minutes">10080</BQE_good_validity>
+        <BQE_bad_validity units="minutes">1440</BQE_bad_validity>
+      </ActiveBQE>
+     </BitrateEstimationManager>
+    <ICD>
+      <ICD_Past_Size>7</ICD_Past_Size>
+      <ICD_validity_short_timer units="s">3600</ICD_validity_short_timer>
+      <ICD_Timeout units="s">4</ICD_Timeout>
+      <ICD_High>0.05</ICD_High>
+      <ICD_URI>https://cne-ssl-test.qualcomm.com/cne/v1/icd/wifi-data</ICD_URI>
+      <ICD_HTTP_URI>http://dev-qsp.qualcomm.com/cne/v1/icd</ICD_HTTP_URI>
+    </ICD>
+    <CQE>
+      <!-- RSSI threshold below which MAC hysteresis timer is not started -->
+      <RSSIMacTimerThreshold units="dbm">-75</RSSIMacTimerThreshold>
+      <!-- Periodic timer to evaluate CQE parameters including RSSI and MAC stats -->
+      <CQETimer units="secs">1</CQETimer>
+      <!-- Time for which CQE is not reevaluted after it was declared bad due to MAC stats -->
+      <MACHysteresisTimer units="secs">30</MACHysteresisTimer>
+      <!-- Alpha to compute RSSI averaging based on IIR filtering mechanism -->
+      <MACStatsAveragingAlpha>0.5</MACStatsAveragingAlpha>
+      <!-- The threshold indicating the number of frames below which no valid CQE estimation can't be done -->
+      <FrameCntThreshold units="frames">8</FrameCntThreshold>
+      <!-- The threshold that ultimately decides the wlan is good or bad based on the combined MAC parameters -->
+      <!-- such as retry, multi-retry, fail and  ack fail metric -->
+      <MACMibThreshold>0.65</MACMibThreshold>
+      <!-- The weightage that given to retry metric in computation of CQE -->
+      <RetryMetricWeight>1</RetryMetricWeight>
+      <!-- The weightage that given to multi-retry metric in computation of CQE -->
+      <MultiRetryMetricWeight>1</MultiRetryMetricWeight>
+      <!-- The weightage that given to fail metric in computation of CQE -->
+      <FailMetricWeight>1</FailMetricWeight>
+      <!-- The weightage that given to ack fail metric in computation of CQE -->
+      <AckFailMetricWeight>0</AckFailMetricWeight>
+    </CQE>
+  </ModulesConfiguration>
+</SwimConfig>

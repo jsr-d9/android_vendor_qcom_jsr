@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OemPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CneOemPolicy.xsd">
+  <!--The version of CneOemPolicy file format-->
+  <Version>1.0</Version>
+  <OEM>
+    <!--Optional Name, ChipsetManufacturer, ChipsetName, ChipsetVersion fields below. It is not used by the implementation and is for operator ease of documentation only -->
+    <ChipsetManufacturer>Qualcomm</ChipsetManufacturer>
+    <ChipsetName>MSM7630</ChipsetName>
+    <ChipsetVersion>1.0</ChipsetVersion>
+  </OEM>
+  <CQE>
+    <!-- RSSI threshold from which all values greather than it is considered as good for wlan to be -->
+    <!-- a candidate for interface selection -->
+    <RSSIAddThreshold units="dbm">-70</RSSIAddThreshold>
+    <!-- RSSI threshold from which all values lesser than it is considered as bad for wlan to be -->
+    <!-- a candidate for interface selection -->
+    <RSSIDropThreshold units="dbm">-75</RSSIDropThreshold>
+    <!-- Interval over whcih RSSI values are averaged -->
+    <RSSIAveragingInterval units="secs">2</RSSIAveragingInterval>
+  </CQE>
+</OemPolicy>
